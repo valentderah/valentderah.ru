@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
-        {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
+        {useRoutes(routes)}
       </>
     </Suspense>
   );
