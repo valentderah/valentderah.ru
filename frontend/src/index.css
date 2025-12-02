@@ -4,65 +4,73 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    /* Yandex/HH Corporate Style */
+    
+    /* Page Background: Light Gray like HH/Yandex interfaces */
+    --background: 0 0% 96%; /* #F5F5F5 */
+    --foreground: 0 0% 0%;   /* Black text */
 
+    /* Cards: Pure White */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 220 100% 50%;
+    /* Yandex Red (Primary Action/Brand) #FC3F1D - HSL ~ 8 97% 55% */
+    /* Yandex Yellow (Secondary/Highlight) #FFCC00 - HSL ~ 48 100% 50% */
+    
+    --primary: 8 97% 55%; 
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 50%;
-    --secondary-foreground: 220 8.9% 46.1%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 0 0% 90%;
+    --accent: 48 100% 50%; /* Yandex Yellow */
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 220 100% 50%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 8 97% 55%;
 
-    --radius: 0.5rem;
+    --radius: 1rem; /* More rounded, 16px */
   }
 
   .dark {
-    --background: 0 0% 0%;
+    /* Not focusing on dark mode for this specific corporate request, but keeping safe defaults */
+    --background: 0 0% 10%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 0%;
+    --card: 0 0% 15%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 0%;
+    --popover: 0 0% 15%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 220 100% 50%;
+    --primary: 8 97% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 14.3% 4.1%;
-    --secondary-foreground: 220 8.9% 53.9%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 14.3% 4.1%;
-    --muted-foreground: 220 8.9% 53.9%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 270 95% 75%;
+    --accent: 48 100% 50%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 9%;
-    --input: 220 13% 9%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 8 97% 55%;
   }
 }
 
@@ -72,16 +80,23 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Using system fonts stack which is very "corporate standard" */
+    font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif; 
   }
 }
 
 @layer components {
   .main-card {
-    @apply bg-white rounded-lg shadow-lg border p-6;
+    /* Clean card style: White, no border (or very subtle), soft shadow */
+    @apply bg-card rounded-2xl shadow-sm border-none p-8;
   }
   
   .section-padding {
-    @apply py-16;
+    @apply py-12;
+  }
+
+  /* Yandex-like badge */
+  .y-badge {
+    @apply bg-secondary text-foreground px-3 py-1 rounded-lg text-sm font-normal hover:bg-gray-200 transition-colors;
   }
 }

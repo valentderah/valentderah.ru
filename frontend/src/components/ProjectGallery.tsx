@@ -23,7 +23,7 @@ const projects: Project[] = [
     title: "Yandex Mail Adblock",
     description: "Chrome extension that blocks ads in Yandex Mail service",
     imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
-    chromeStoreUrl: "https://chromewebstore.google.com/detail/яндекс-твик-adblock-почты/gdmgaolhbllpodgbdpmgbcdnplkcijcd",
+    chromeStoreUrl: "https://chromewebstore.google.com/detail/яндекс-твик-adblock-почты/gdmgaolhbllpodgbdpmgbcdnplkcijcd?authuser=0&hl=en",
     githubUrl: "https://github.com/valentderah/yandex-mail-adblock",
     tags: ["Chrome Extension", "JavaScript", "AdBlock"],
   },
@@ -32,7 +32,7 @@ const projects: Project[] = [
     title: "VK Video Hotkeys",
     description: "Chrome extension that adds hotkey support for VK video player",
     imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80",
-    chromeStoreUrl: "https://chromewebstore.google.com/detail/горячие-клавиши-вк-видео/pgacfedlkaomiedeibedjhpmiknfkidk",
+    chromeStoreUrl: "https://chromewebstore.google.com/detail/горячие-клавиши-вк-видео/pgacfedlkaomiedeibedjhpmiknfkidk?authuser=0&hl=en",
     githubUrl: "https://github.com/valentderah/vk-video-hotkeys",
     tags: ["Chrome Extension", "JavaScript", "Hotkeys"],
   },
@@ -41,7 +41,7 @@ const projects: Project[] = [
 const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
   const translations = {
     en: { viewProject: "View Project", visitGithub: "GitHub" },
-    ru: { viewProject: "Открыть проект", visitGithub: "GitHub" },
+    ru: { viewProject: "Открыть", visitGithub: "GitHub" },
   };
 
   const t = translations[language] || translations.en;
@@ -49,31 +49,38 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
       {projects.map((project) => (
-        <Card key={project.id} className="main-card hover:shadow-xl transition-shadow">
-          <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+        <div key={project.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col h-full">
+          <div className="h-48 w-full overflow-hidden bg-gray-100 relative group">
             <img
               src={project.imageUrl}
               alt={project.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
           </div>
-          <CardContent className="pt-6">
-            <h3 className="text-xl font-bold mb-2 text-black">{project.title}</h3>
-            <p className="text-gray-600 mb-4">{project.description}</p>
+          
+          <div className="p-6 flex flex-col flex-grow">
+            <div className="flex justify-between items-start mb-3">
+                <h3 className="text-xl font-bold text-black">{project.title}</h3>
+            </div>
             
-            <div className="flex flex-wrap gap-2 mb-4">
+            <p className="text-gray-600 mb-6 text-[15px] leading-relaxed flex-grow">
+                {project.description}
+            </p>
+            
+            <div className="flex flex-wrap gap-2 mb-6">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2 py-1 bg-primary/10 text-primary rounded text-sm"
+                  className="px-2.5 py-1 bg-gray-50 text-gray-600 rounded-lg text-xs font-medium border border-gray-100"
                 >
                   {tag}
                 </span>
               ))}
             </div>
             
-            <div className="flex gap-3">
-              <Button asChild className="bg-primary hover:bg-primary/90">
+            <div className="flex gap-3 mt-auto">
+              <Button asChild className="bg-[#FFCC00] hover:bg-[#FFCC00]/90 text-black font-semibold flex-1 rounded-xl shadow-sm">
                 <a
                   href={project.chromeStoreUrl}
                   target="_blank"
@@ -84,20 +91,19 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
                 </a>
               </Button>
               {project.githubUrl && (
-                <Button variant="outline" asChild className="border-primary text-primary">
+                <Button variant="outline" asChild className="border-gray-200 text-gray-700 hover:bg-gray-50 rounded-xl">
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Github className="mr-2 h-4 w-4" />
-                    {t.visitGithub}
+                    <Github className="h-5 w-5" />
                   </a>
                 </Button>
               )}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       ))}
     </div>
   );

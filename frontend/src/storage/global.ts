@@ -1,29 +1,14 @@
 const globalData = {
-    skillsList: ["Python", "JavaScript", "React", "Django", "Docker", "Redis", "Celery"],
-    workExperienceList: [
-        {
-            company: "Tech Startup",
-            position: {ru: "Fullstack разработчик", en: "Fullstack Developer"},
-            period: "2022 - 2024",
-            description: {
-                ru: "Разработка веб-приложений на Django и React. Оптимизация производительности и внедрение новых функций.",
-                en: "Developing web applications with Django and React. Performance optimization and implementing new features."
-            },
-            technologies: ["Python", "Django", "React", "PostgreSQL"]
-        },
-        {
-            company: "Digital Agency",
-            position: {ru: "Frontend разработчик", en: "Frontend Developer"},
-            period: "2021 - 2022",
-            description: {
-                ru: "Создание интерактивных пользовательских интерфейсов и интеграция с API.",
-                en: "Creating interactive user interfaces and API integration."
-            },
-            technologies: ["JavaScript", "React", "CSS", "REST API"]
-        }
+    skillsList: [
+        "Python", "PostgreSQL", "Docker", "FastAPI", "SQL", "Git", "Django Framework",
+        "Redis", "Linux", "REST API", "Celery", "Pytest", "JavaScript", "React",
+        "Webpack", "Gitlab", "Nginx", "Unit Testing", "API", "Bash",
+        "Django Rest Framework", "MySQL", "Selenium", "PHP", "pandas", "TypeScript",
+        "GitHub", "Clickhouse", "MongoDB", "NoSQL"
     ],
+    workExperienceList: [], // Deprecated, moved to ResumeTimeline
     name: {ru: "Валентин Дерах", en: "Valentin Derakh"},
-    title: {ru: "Кнопкодав-смузихлеб", en: "Software Developer"},
+    title: {ru: "Python / Fullstack Developer", en: "Python / Fullstack Developer"},
     about: {ru: "О себе", en: "About me"},
     experience: {ru: "Опыт", en: "Experience"},
     projects: {ru: "Проекты", en: "Projects"},
@@ -31,20 +16,25 @@ const globalData = {
     contacts: {ru: "Контакты", en: "Contacts"},
     hi: {ru: "Приветствую 👋", en: "Hello 👋"},
     aboutDescription: {
-        ru: "Так уж вышло, что я программирую на Python и JavaScript (Full-Stack разработчик). Увлекаюсь тяжелой атлетикой, инвестициями и IT. А еще у меня есть микроблог, подписывайтесь.",
-        en: "It so happened that I program in Python and JavaScript (Full-Stack developer). I'm interested in weightlifting, investing, and IT. I also have a microblog, so subscribe."
+        ru: "Имею 5-летний опыт в создании коммерческих веб-продуктов, специализируюсь на полном цикле от проектирования архитектуры до поддержки. В работе для меня главное — создавать надежные и масштабируемые решения, которые приносят пользу бизнесу. Ищу команду, в которой ценятся качество кода, взаимное развитие и открытый обмен мнениями. Также разрабатываю собственные проекты, такие как браузерные расширения Yandex Tweak и VK Video Hotkeys.",
+        en: "I have 5 years of experience in creating commercial web products, specializing in the full cycle from architecture design to support. In my work, the main thing for me is to create reliable and scalable solutions that bring value to the business. I am looking for a team that values code quality, mutual development, and open exchange of opinions. I also develop my own projects, such as browser extensions Yandex Tweak and VK Video Hotkeys."
     },
     workExperience: {ru: "Опыт работы", en: "Work Experience"},
     workExperienceDescription: {
-        ru: "Здесь можно прочитать мой опыт работы в разных компаниях.",
-        en: "Here you can read my work experience in different companies."
+        ru: "5 лет 4 месяца в разработке коммерческих продуктов",
+        en: "5 years 4 months in commercial product development"
     },
     getInTouch: {ru: "Связаться со мной", en: "Get in touch"},
     contactDescription: {
         ru: "Тут можно почитать мой микроблог или связаться со мной по новым проектам.",
         en: "Here you can read my micro-blog or contact me for new projects."
     },
-    siteWasVibecoded: {ru: "Сайт создан с помощью вайб-кодинга*", en: "Site was vibecoded*"}
+    siteWasVibecoded: {ru: "Сайт создан с помощью вайб-кодинга*", en: "Site was vibecoded*"},
+    education: {ru: "Образование", en: "Education"},
+    educationDescription: {
+        ru: "Белорусский национальный технический университет, Минск (2022) — Машиностроительный факультет (МСФ), Мехатроника (Неоконченное высшее)",
+        en: "Belarusian National Technical University, Minsk (2022) — Mechanical Engineering Faculty (MSF), Mechatronics (Incomplete Higher)"
+    }
 }
 
 export default globalData
