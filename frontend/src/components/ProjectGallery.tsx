@@ -20,18 +20,18 @@ interface ProjectGalleryProps {
 const projects: Project[] = [
   {
     id: "1",
-    title: "Yandex Mail Adblock",
+    title: "Yandex Tweak",
     description: "Chrome extension that blocks ads in Yandex Mail service",
-    imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    imageUrl: "/banners/yandex-tweak.png",
     chromeStoreUrl: "https://chromewebstore.google.com/detail/яндекс-твик-adblock-почты/gdmgaolhbllpodgbdpmgbcdnplkcijcd?authuser=0&hl=en",
-    githubUrl: "https://github.com/valentderah/yandex-mail-adblock",
+    githubUrl: "https://github.com/valentderah/yandex-tweak",
     tags: ["Chrome Extension", "JavaScript", "AdBlock"],
   },
   {
     id: "2",
     title: "VK Video Hotkeys",
     description: "Chrome extension that adds hotkey support for VK video player",
-    imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80",
+    imageUrl: "/banners/vk-hotkeys.png",
     chromeStoreUrl: "https://chromewebstore.google.com/detail/горячие-клавиши-вк-видео/pgacfedlkaomiedeibedjhpmiknfkidk?authuser=0&hl=en",
     githubUrl: "https://github.com/valentderah/vk-video-hotkeys",
     tags: ["Chrome Extension", "JavaScript", "Hotkeys"],
@@ -47,61 +47,62 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
   const t = translations[language] || translations.en;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {projects.map((project) => (
-        <div key={project.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col h-full">
-          <div className="h-48 w-full overflow-hidden bg-gray-100 relative group">
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-          </div>
-          
-          <div className="p-6 flex flex-col flex-grow">
-            <div className="flex justify-between items-start mb-3">
-                <h3 className="text-xl font-bold text-black">{project.title}</h3>
-            </div>
-            
-            <p className="text-gray-600 mb-6 text-[15px] leading-relaxed flex-grow">
-                {project.description}
-            </p>
-            
-            <div className="flex flex-wrap gap-2 mb-6">
+        <div 
+          key={project.id} 
+          className="bg-[#F3F3F5] rounded-[2rem] p-8 min-h-[400px] relative overflow-hidden group hover:shadow-lg transition-all duration-300"
+        >
+          {/* Content Container */}
+          <div className="relative z-10 flex flex-col h-full max-w-[60%]">
+             <h3 className="text-3xl font-bold text-black mb-3 leading-tight">
+               {project.title}
+             </h3>
+             
+             <p className="text-gray-600 mb-6 font-medium">
+               {project.description}
+             </p>
+             
+             <div className="flex flex-wrap gap-2 mb-8">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 bg-gray-50 text-gray-600 rounded-lg text-xs font-medium border border-gray-100"
+                  className="px-2.5 py-1 bg-white text-gray-600 rounded-lg text-xs font-semibold"
                 >
                   {tag}
                 </span>
               ))}
             </div>
-            
-            <div className="flex gap-3 mt-auto">
-              <Button asChild className="bg-[#FFCC00] hover:bg-[#FFCC00]/90 text-black font-semibold flex-1 rounded-xl shadow-sm">
+
+             <div className="flex gap-3 mt-auto">
                 <a
                   href={project.chromeStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-colors text-sm shadow-sm"
                 >
-                  <ExternalLink className="mr-2 h-4 w-4" />
                   {t.viewProject}
                 </a>
-              </Button>
-              {project.githubUrl && (
-                <Button variant="outline" asChild className="border-gray-200 text-gray-700 hover:bg-gray-50 rounded-xl">
+                {project.githubUrl && (
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-4 py-3 bg-white text-black rounded-xl font-medium hover:bg-gray-50 transition-colors shadow-sm"
                   >
-                    <Github className="h-5 w-5" />
+                    <Github className="w-5 h-5" />
                   </a>
-                </Button>
-              )}
-            </div>
+                )}
+             </div>
+          </div>
+
+          {/* Image Container - Bottom Right */}
+          <div className="absolute bottom-0 right-0 w-[55%] h-[65%] translate-x-4 translate-y-4 group-hover:translate-y-2 transition-transform duration-500">
+             <img
+              src={project.imageUrl}
+              alt={project.title}
+              className="w-full h-full object-cover object-left-top rounded-tl-2xl shadow-xl"
+            />
           </div>
         </div>
       ))}

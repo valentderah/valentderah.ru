@@ -4,56 +4,54 @@
 
 @layer base {
   :root {
-    /* Yandex/HH Corporate Style */
+    /* Skillbox SPO Style */
     
-    /* Page Background: Light Gray like HH/Yandex interfaces */
-    --background: 0 0% 96%; /* #F5F5F5 */
+    --background: 0 0% 100%; /* Pure White */
     --foreground: 0 0% 0%;   /* Black text */
 
-    /* Cards: Pure White */
+    /* Cards: White */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    /* Yandex Red (Primary Action/Brand) #FC3F1D - HSL ~ 8 97% 55% */
-    /* Yandex Yellow (Secondary/Highlight) #FFCC00 - HSL ~ 48 100% 50% */
-    
-    --primary: 8 97% 55%; 
+    /* Skillbox New Primary: #3d3bff -> HSL ~ 241 100% 61% */
+    --primary: 241 100% 61%; 
     --primary-foreground: 0 0% 100%;
 
+    /* Skillbox Accent: Gray */
+    --accent: 210 20% 90%; 
+    --accent-foreground: 0 0% 0%;
+
+    /* Secondary/Muted */
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 0%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 48 100% 50%; /* Yandex Yellow */
-    --accent-foreground: 0 0% 0%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 8 97% 55%;
+    --ring: 241 100% 61%;
 
-    --radius: 1rem; /* More rounded, 16px */
+    --radius: 1rem; 
   }
 
   .dark {
-    /* Not focusing on dark mode for this specific corporate request, but keeping safe defaults */
-    --background: 0 0% 10%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 15%;
+    --card: 0 0% 10%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 15%;
+    --popover: 0 0% 10%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 8 97% 55%;
+    --primary: 241 100% 61%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 20%;
@@ -62,7 +60,7 @@
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 48 100% 50%;
+    --accent: 80 86% 68%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 62.8% 30.6%;
@@ -70,7 +68,7 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 8 97% 55%;
+    --ring: 241 100% 61%;
   }
 }
 
@@ -80,23 +78,20 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* Using system fonts stack which is very "corporate standard" */
-    font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif; 
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }
 
 @layer components {
   .main-card {
-    /* Clean card style: White, no border (or very subtle), soft shadow */
     @apply bg-card rounded-2xl shadow-sm border-none p-8;
   }
   
   .section-padding {
-    @apply py-12;
+    @apply py-20;
   }
-
-  /* Yandex-like badge */
-  .y-badge {
-    @apply bg-secondary text-foreground px-3 py-1 rounded-lg text-sm font-normal hover:bg-gray-200 transition-colors;
+  
+  .floating-header {
+    @apply fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-white/90 backdrop-blur-md border border-gray-100 rounded-full shadow-lg px-8 py-3 w-auto max-w-[90vw];
   }
 }
