@@ -63,18 +63,24 @@ const Home = () => {
       {/* Floating Island Header - Appears on Scroll */}
       <div className="flex justify-center">
         <header
-          className={`fixed top-4 z-50 transition-all duration-300 ${
+          className={`fixed top-0 md:top-4 z-50 transition-all duration-300 ${
             isScrolled
               ? "rounded-xl bg-white/90 backdrop-blur-md shadow-lg px-6 py-3 border border-gray-100 max-w-6xl w-full"
               : "rounded-none bg-transparent backdrop-blur-none shadow-none px-6 py-3 border-none w-full max-w-6xl"
           }`}
         >
-          <div className={`flex items-center justify-between ${isScrolled ? "" : "max-w-6xl mx-auto"}`}>
+          <div
+            className={`flex items-center justify-between ${
+              isScrolled ? "" : "max-w-6xl mx-auto"
+            }`}
+          >
             <div
               className="flex items-center gap-2 cursor-pointer"
               onClick={() => scrollToSection("about")}
             >
-              <span className="text-lg font-bold tracking-tight">{t("name")}</span>
+              <span className="text-lg font-bold tracking-tight">
+                {t("name")}
+              </span>
             </div>
 
             <div className="flex items-center gap-6">
@@ -96,12 +102,26 @@ const Home = () => {
       </div>
 
       {/* Hero Section - Redesigned as Blue Card */}
-      <section id="about" className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="bg-[#202020] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-xl min-h-[500px] flex flex-col justify-center">
+      <section id="about" className="pt-20 md:pt-32 pb-12 md:pb-20">
+        <div className="container mx-auto px-3 md:px-4 max-w-6xl">
+          <div className="bg-[#202020] rounded-[2.5rem] px-4 py-8 md:p-12 text-white relative overflow-hidden shadow-xl min-h-[500px] flex flex-col justify-center">
             <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center md:items-start">
-              {/* Left Content */}
-              <div className="flex-grow text-left w-full md:w-3/5">
+              {/* Right Content - Avatar & Decoration - First on Mobile */}
+              <div className="w-full md:w-2/5 relative flex justify-center md:justify-end md:mt-0 self-start order-1 md:order-2">
+                {/* Avatar */}
+                <div className="relative z-10">
+                  <Avatar className="w-64 h-64 rounded-[2rem] shadow-2xl border-8 border-white/10">
+                    <img
+                      src="/face.jpg"
+                      className="object-cover"
+                      alt="Valiantsin Dzerakh"
+                    />
+                  </Avatar>
+                </div>
+              </div>
+
+              {/* Left Content - Second on Mobile */}
+              <div className="flex-grow text-left w-full md:w-3/5 order-2 md:order-1">
                 <h1 className="text-5xl font-bold mb-2 tracking-tight">
                   {t("name")}
                 </h1>
@@ -122,9 +142,6 @@ const Home = () => {
                       {skill}
                     </span>
                   ))}
-                  <span className="px-3 py-1.5 text-gray-400 text-xs font-medium">
-                    {t("more")}
-                  </span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-start">
@@ -137,20 +154,6 @@ const Home = () => {
                   </Button>
                 </div>
               </div>
-
-              {/* Right Content - Avatar & Decoration */}
-              <div className="w-full md:w-2/5 relative flex justify-center md:justify-end mt-8 md:mt-0 self-start">
-                {/* Avatar */}
-                <div className="relative z-10">
-                  <Avatar className="w-64 h-64 rounded-[2rem] shadow-2xl border-8 border-white/10">
-                    <img
-                      src="/face.jpg"
-                      className="object-cover"
-                      alt="Valiantsin Dzerakh"
-                    />
-                  </Avatar>
-                </div>
-              </div>
             </div>
 
             {/* Background Decorations */}
@@ -159,23 +162,26 @@ const Home = () => {
       </section>
 
       {/* Experience Section (White) */}
-      <section id="experience" className="py-20 bg-white w-full">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <section id="experience" className="py-12 md:py-20 bg-white w-full">
+        <div className="container mx-auto px-3 md:px-4 max-w-6xl">
           <ResumeTimeline language={language} />
         </div>
       </section>
 
       {/* Projects Section (White) */}
-      <section id="projects" className="py-20 bg-white w-full overflow-x-clip">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <section
+        id="projects"
+        className="py-12 md:py-20 bg-white w-full overflow-x-clip"
+      >
+        <div className="container mx-auto px-3 md:px-4 max-w-6xl">
           <ProjectGallery language={language} />
         </div>
       </section>
 
       {/* Contact Section (Dark Card) */}
-      <section id="contacts" className="py-24 w-full bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="bg-[#202020] rounded-[2.5rem] p-12 md:p-16 text-white relative overflow-hidden shadow-2xl">
+      <section id="contacts" className="py-12 md:py-24 w-full bg-white">
+        <div className="container mx-auto px-3 md:px-4 max-w-6xl">
+          <div className="bg-[#202020] rounded-[2.5rem] px-6 py-12 md:p-16 text-white relative overflow-hidden shadow-2xl">
             <div className="flex flex-col md:flex-row gap-12 items-start relative z-10">
               {/* Left Side */}
               <div className="flex-1">

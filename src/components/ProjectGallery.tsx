@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -28,7 +28,8 @@ const projectsData: Record<string, Project[]> = {
       id: "1",
       title: "Yandex Tweak",
       imageUrl: "/banners/yandex-tweak.png",
-      chromeStoreUrl: "https://chromewebstore.google.com/detail/яндекс-твик-adblock-почты/gdmgaolhbllpodgbdpmgbcdnplkcijcd?authuser=0&hl=en",
+      chromeStoreUrl:
+        "https://chromewebstore.google.com/detail/яндекс-твик-adblock-почты/gdmgaolhbllpodgbdpmgbcdnplkcijcd?authuser=0&hl=en",
       githubUrl: "https://github.com/valentderah/yandex-tweak",
       tags: ["Chrome Extension", "JavaScript", "AdBlock"],
     },
@@ -36,7 +37,8 @@ const projectsData: Record<string, Project[]> = {
       id: "2",
       title: "VK Video Hotkeys",
       imageUrl: "/banners/vk-hotkeys.png",
-      chromeStoreUrl: "https://chromewebstore.google.com/detail/горячие-клавиши-вк-видео/pgacfedlkaomiedeibedjhpmiknfkidk?authuser=0&hl=en",
+      chromeStoreUrl:
+        "https://chromewebstore.google.com/detail/горячие-клавиши-вк-видео/pgacfedlkaomiedeibedjhpmiknfkidk?authuser=0&hl=en",
       githubUrl: "https://github.com/valentderah/vk-video-hotkeys",
       tags: ["Chrome Extension", "JavaScript", "Hotkeys"],
     },
@@ -46,7 +48,8 @@ const projectsData: Record<string, Project[]> = {
       id: "1",
       title: "Yandex Tweak",
       imageUrl: "/banners/yandex-tweak.png",
-      chromeStoreUrl: "https://chromewebstore.google.com/detail/яндекс-твик-adblock-почты/gdmgaolhbllpodgbdpmgbcdnplkcijcd?authuser=0&hl=en",
+      chromeStoreUrl:
+        "https://chromewebstore.google.com/detail/яндекс-твик-adblock-почты/gdmgaolhbllpodgbdpmgbcdnplkcijcd?authuser=0&hl=en",
       githubUrl: "https://github.com/valentderah/yandex-tweak",
       tags: ["Chrome Extension", "JavaScript", "AdBlock"],
     },
@@ -54,25 +57,38 @@ const projectsData: Record<string, Project[]> = {
       id: "2",
       title: "VK Video Hotkeys",
       imageUrl: "/banners/vk-hotkeys.png",
-      chromeStoreUrl: "https://chromewebstore.google.com/detail/горячие-клавиши-вк-видео/pgacfedlkaomiedeibedjhpmiknfkidk?authuser=0&hl=en",
+      chromeStoreUrl:
+        "https://chromewebstore.google.com/detail/горячие-клавиши-вк-видео/pgacfedlkaomiedeibedjhpmiknfkidk?authuser=0&hl=en",
       githubUrl: "https://github.com/valentderah/vk-video-hotkeys",
       tags: ["Chrome Extension", "JavaScript", "Hotkeys"],
     },
-  ]
+  ],
 };
 
 const projectDescriptions = {
   en: {
     "1": "This extension is designed for users of Yandex servers. It allows you to avoid creating multiple tabs when searching, as well as block ads in Yandex Mail and Yandex Search.",
-    "2": "This extension brings back the familiar YouTube keyboard shortcuts. Navigate with ease, toggle subtitles on and off, switch to theater mode, and adjust video playback speed — all using convenient hotkeys."
+    "2": "This extension brings back the familiar YouTube keyboard shortcuts. Navigate with ease, toggle subtitles on and off, switch to theater mode, and adjust video playback speed — all using convenient hotkeys.",
   },
   ru: {
     "1": "Это расширение создано для пользователей сервисов Яндекса. Оно позволяет избежать открытия множества вкладок при поиске, а также блокирует рекламу в Яндекс Почте и Яндекс Поиске.",
-    "2": "Это расширение возвращает знакомые шорткаты YouTube. Удобная навигация, включение/выключение субтитров, режим кинотеатра и регулировка скорости воспроизведения — всё это с помощью удобных горячих клавиш. "
-  }
+    "2": "Это расширение возвращает знакомые шорткаты YouTube. Удобная навигация, включение/выключение субтитров, режим кинотеатра и регулировка скорости воспроизведения — всё это с помощью удобных горячих клавиш. ",
+  },
 };
 
 const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const translations = {
     en: { viewProject: "View Project", visitGithub: "GitHub" },
     ru: { viewProject: "Открыть", visitGithub: "GitHub" },
@@ -83,7 +99,10 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
   const sectionTitle = globalData.projects[language];
 
   return (
-    <Carousel className="w-full relative" opts={{ align: "start", loop: true, dragFree: true }}>
+    <Carousel
+      className="w-full relative"
+      opts={{ align: "start", loop: !isMobile, dragFree: true }}
+    >
       <div className="flex justify-between items-center mb-12">
         <h2 className="text-4xl font-bold text-black text-left">
           {sectionTitle}
@@ -93,13 +112,14 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
           <CarouselNext className="static translate-y-0 bg-[#F3F3F5] hover:bg-[#EBEBEB] border-none w-12 h-12 rounded-full" />
         </div>
       </div>
-      
+
       <CarouselContent className="-ml-4">
         {currentProjects.map((project) => (
-          <CarouselItem key={project.id} className="pl-4 md:basis-[90%] lg:basis-[85%]">
-            <div
-              className="bg-[#F3F3F5] rounded-[2.5rem] p-6 flex flex-col md:flex-row gap-8 group transition-all duration-300 h-full"
-            >
+          <CarouselItem
+            key={project.id}
+            className="pl-4 md:basis-[90%] lg:basis-[85%]"
+          >
+            <div className="bg-[#F3F3F5] rounded-[2.5rem] px-4 py-6 md:p-6 flex flex-col md:flex-row gap-8 group transition-all duration-300 h-full">
               {/* Image Container - Left Side */}
               <div className="w-full md:w-[35%] shrink-0 h-[280px] md:h-auto relative overflow-hidden rounded-[2rem]">
                 <img
@@ -112,45 +132,51 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
               {/* Content Container - Right Side */}
               <div className="flex flex-col justify-between py-2 flex-grow">
                 <div className="mb-6">
-                    {/* Title First */}
+                  {/* Title First */}
                   <h3 className="text-2xl font-bold text-black leading-tight mb-4">
                     {project.title}
                   </h3>
 
-                    {/* Description Second */}
+                  {/* Description Second */}
                   <p className="text-gray-600 text-lg leading-relaxed font-medium">
                     {projectDescriptions[language][project.id]}
                   </p>
                 </div>
 
                 <div>
-                    {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                        <a
-                          href={project.chromeStoreUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl shadow-sm text-base transition-colors"
-                        >
-                          {t.viewProject}
-                        </a>
-                        {project.githubUrl && (
-                          <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center w-14 h-14 bg-white text-gray-600 rounded-xl hover:bg-gray-50 transition-colors shadow-sm"
-                          >
-                            <Github className="w-6 h-6" />
-                          </a>
-                        )}
-                    </div>
+                  {/* Buttons */}
+                  <div className="flex flex-row gap-4 justify-start">
+                    <a
+                      href={project.chromeStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl shadow-sm text-base transition-colors flex-1 md:flex-none md:w-auto"
+                    >
+                      {t.viewProject}
+                    </a>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-14 h-14 bg-white text-gray-600 rounded-xl hover:bg-gray-50 transition-colors shadow-sm shrink-0"
+                      >
+                        <Github className="w-6 h-6" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
+
+      {/* Mobile Navigation Arrows - Below Carousel */}
+      <div className="flex justify-center gap-2 mt-8 md:hidden">
+        <CarouselPrevious className="static translate-y-0 bg-[#F3F3F5] hover:bg-[#EBEBEB] border-none w-12 h-12 rounded-full" />
+        <CarouselNext className="static translate-y-0 bg-[#F3F3F5] hover:bg-[#EBEBEB] border-none w-12 h-12 rounded-full" />
+      </div>
     </Carousel>
   );
 };

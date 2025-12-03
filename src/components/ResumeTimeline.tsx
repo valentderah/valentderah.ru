@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Building2, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface Job {
   id: string;
@@ -31,7 +31,18 @@ const defaultJobs: Record<string, Job[]> = {
       period: "February 2023 — Present",
       description:
         "• Developed and implemented an internal metrics collection system (GTM analog), which accelerated product team decision-making by 30%.\n• Implemented a mechanism for sequential document sending via Celery and Redis with notification distribution.\n• Designed multiple document signing functionality, reducing operation time from 3 minutes to 30 seconds.\n• Initiated frontend refactoring: introduced Webpack for build optimization and migrated part of the project to React, increasing client-side performance by 40% and simplifying further development.",
-      technologies: ["Python", "JS", "Django", "Docker", "Redis", "Celery", "React", "Webpack", "PostgreSQL", "Nginx"],
+      technologies: [
+        "Python",
+        "JS",
+        "Django",
+        "Docker",
+        "Redis",
+        "Celery",
+        "React",
+        "Webpack",
+        "PostgreSQL",
+        "Nginx",
+      ],
       url: "https://podpis.by/",
     },
     {
@@ -62,7 +73,13 @@ const defaultJobs: Record<string, Job[]> = {
       period: "January 2021 — February 2022",
       description:
         "• Implemented an open API for integration with external services, attracting 1C clients.\n• Automated report generation in Python, reducing documentation preparation time by 90%.\n• Implemented 'multi-login' function in JavaScript, allowing users to quickly switch between accounts.\n• Conducted a large-scale redesign of the personal cabinet and landing page, improving usability and visual components.",
-      technologies: ["Python", "REST API", "JavaScript", "Django", "PostgreSQL"],
+      technologies: [
+        "Python",
+        "REST API",
+        "JavaScript",
+        "Django",
+        "PostgreSQL",
+      ],
       url: "https://intechs.by/",
     },
     {
@@ -80,10 +97,21 @@ const defaultJobs: Record<string, Job[]> = {
       id: "1",
       company: "Insterra",
       position: "Fullstack-разработчик",
-      period: "Февраль 2023 — настоящее время",
+      period: "Февраль 2023 — Настоящее время",
       description:
         "• Разработал и внедрил внутреннюю систему сбора метрик (аналог GTM), что ускорило принятие решений на 30%.\n• Реализовал механизм последовательной отправки документов через Celery и Redis с рассылкой уведомлений.\n• Спроектировал функционал множественного подписания документов, сократив время операции с 3 минут до 30 секунд.\n• Инициировал рефакторинг фронтенда: внедрил Webpack для оптимизации сборки и перевел часть проекта на React, повысив производительность клиентской части на 40% и упростив дальнейшую разработку.",
-      technologies: ["Python", "JS", "Django", "Docker", "Redis", "Celery", "React", "Webpack", "PostgreSQL", "Nginx"],
+      technologies: [
+        "Python",
+        "JS",
+        "Django",
+        "Docker",
+        "Redis",
+        "Celery",
+        "React",
+        "Webpack",
+        "PostgreSQL",
+        "Nginx",
+      ],
       url: "https://podpis.by/",
     },
     {
@@ -114,7 +142,13 @@ const defaultJobs: Record<string, Job[]> = {
       period: "Январь 2021 — Февраль 2022",
       description:
         "• Реализовал открытый API для интеграции с внешними сервисами, что привлекло 1С-клиентов.\n• Автоматизировал генерацию отчетов на Python, сократив время подготовки документации на 90%.\n• Реализовал на JavaScript функцию «мультивхода», позволив пользователям быстро переключаться между учетными записями.\n• Провел масштабный редизайн личного кабинета и лендинга, улучшив их юзабилити и визуальную составляющую.",
-      technologies: ["Python", "REST API", "JavaScript", "Django", "PostgreSQL"],
+      technologies: [
+        "Python",
+        "REST API",
+        "JavaScript",
+        "Django",
+        "PostgreSQL",
+      ],
       url: "https://intechs.by/",
     },
     {
@@ -154,40 +188,43 @@ const ResumeTimeline: React.FC<ResumeTimelineProps> = ({
 
   return (
     <div className="w-full">
-      <div className="bg-[#F3F3F5] rounded-[2.5rem] p-8">
-        <h2 className="text-4xl font-bold mb-8 text-black text-left">{t.experience}</h2>
+      <div className="bg-[#F3F3F5] rounded-[2.5rem] px-4 py-8 md:p-8">
+        <h2 className="text-4xl font-bold mb-8 text-black text-left">
+          {t.experience}
+        </h2>
 
         <Accordion type="single" collapsible className="w-full space-y-4">
           {resumeJobs.map((job) => (
-            <AccordionItem 
-              key={job.id} 
-              value={job.id} 
-              className="bg-white rounded-2xl px-6 border-none"
+            <AccordionItem
+              key={job.id}
+              value={job.id}
+              className="bg-white rounded-2xl px-4 md:px-6 border-none"
             >
               <AccordionTrigger className="hover:no-underline py-6">
-                <div className="flex flex-col md:flex-row md:items-center justify-between w-full gap-4 text-left pr-8">
+                <div className="flex flex-col md:flex-row md:items-center justify-between w-full gap-2 md:gap-4 text-left pr-0 md:pr-8">
                   <div className="flex flex-col">
                     <h3 className="text-xl font-bold text-gray-900">
                       {job.position}
                     </h3>
                     <div className="flex items-center gap-2 text-gray-600 font-medium mt-1">
-                      <Building2 className="w-4 h-4" />
-                      {job.company}
-                      {job.url && (
-                          <a
-                              href={job.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-primary hover:text-primary/80 transition-colors ml-1"
-                              title={t.visitWebsite}
-                              onClick={(e) => e.stopPropagation()}
-                          >
-                              <ArrowUpRight className="w-4 h-4" />
-                          </a>
+                      {job.url ? (
+                        <a
+                          href={job.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary transition-colors flex items-center gap-0.5"
+                          title={t.visitWebsite}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {job.company}
+                          <ArrowUpRight className="w-4 h-4 text-primary" />
+                        </a>
+                      ) : (
+                        job.company
                       )}
                     </div>
                   </div>
-                  
+
                   <div className="text-gray-500 font-medium whitespace-nowrap text-sm md:text-base">
                     {job.period}
                   </div>
@@ -201,8 +238,8 @@ const ResumeTimeline: React.FC<ResumeTimelineProps> = ({
 
                   <div className="flex flex-wrap gap-2">
                     {job.technologies.map((tech) => (
-                      <span 
-                        key={tech} 
+                      <span
+                        key={tech}
                         className="px-3 py-1.5 bg-[#F3F3F5] text-gray-600 rounded-lg text-sm font-medium shadow-sm"
                       >
                         {tech}
