@@ -7,6 +7,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Github } from "lucide-react";
+import globalData from "@/storage/global";
 
 interface Project {
   id: string;
@@ -62,12 +63,12 @@ const projectsData: Record<string, Project[]> = {
 
 const projectDescriptions = {
   en: {
-    "1": "One tab search for Yandex. Mail without ads. Adblock for search. This extension is designed for users of Yandex servers. It allows you to avoid creating multiple tabs when searching, as well as block ads in Yandex Mail and Yandex Search.",
-    "2": "Bring back the usual YouTube keyboard shortcuts in VK Video! This extension brings back the familiar YouTube keyboard shortcuts. Navigate with ease, toggle subtitles on and off, switch to theater mode, and adjust video playback speed — all using convenient hotkeys."
+    "1": "This extension is designed for users of Yandex servers. It allows you to avoid creating multiple tabs when searching, as well as block ads in Yandex Mail and Yandex Search.",
+    "2": "This extension brings back the familiar YouTube keyboard shortcuts. Navigate with ease, toggle subtitles on and off, switch to theater mode, and adjust video playback speed — all using convenient hotkeys."
   },
   ru: {
-    "1": "Поиск в одной вкладке для Яндекса. Почта без рекламы. Блокировка рекламы в поиске. Это расширение создано для пользователей сервисов Яндекса. Оно позволяет избежать открытия множества вкладок при поиске, а также блокирует рекламу в Яндекс Почте и Яндекс Поиске.",
-    "2": "Верните привычные горячие клавиши YouTube в VK Видео! Это расширение возвращает знакомые шорткаты YouTube. Удобная навигация, включение/выключение субтитров, режим кинотеатра и регулировка скорости воспроизведения — всё это с помощью удобных горячих клавиш. Каждую клавишу можно настроить в настройках расширения. Также в интерфейсе плеера доступны дополнительные кнопки управления."
+    "1": "Это расширение создано для пользователей сервисов Яндекса. Оно позволяет избежать открытия множества вкладок при поиске, а также блокирует рекламу в Яндекс Почте и Яндекс Поиске.",
+    "2": "Это расширение возвращает знакомые шорткаты YouTube. Удобная навигация, включение/выключение субтитров, режим кинотеатра и регулировка скорости воспроизведения — всё это с помощью удобных горячих клавиш. "
   }
 };
 
@@ -79,12 +80,18 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
 
   const t = translations[language] || translations.en;
   const currentProjects = projectsData[language] || projectsData.en;
+  const sectionTitle = globalData.projects[language];
 
   return (
-    <Carousel className="w-full relative" opts={{ align: "start", loop: true }}>
-       <div className="absolute -top-[5rem] right-0 hidden md:flex gap-2">
-        <CarouselPrevious className="static translate-y-0 bg-[#F3F3F5] hover:bg-[#EBEBEB] border-none w-12 h-12 rounded-full" />
-        <CarouselNext className="static translate-y-0 bg-[#F3F3F5] hover:bg-[#EBEBEB] border-none w-12 h-12 rounded-full" />
+    <Carousel className="w-full relative" opts={{ align: "start", loop: true, dragFree: true }}>
+      <div className="flex justify-between items-center mb-12">
+        <h2 className="text-4xl font-bold text-black text-left">
+          {sectionTitle}
+        </h2>
+        <div className="hidden md:flex gap-2">
+          <CarouselPrevious className="static translate-y-0 bg-[#F3F3F5] hover:bg-[#EBEBEB] border-none w-12 h-12 rounded-full" />
+          <CarouselNext className="static translate-y-0 bg-[#F3F3F5] hover:bg-[#EBEBEB] border-none w-12 h-12 rounded-full" />
+        </div>
       </div>
       
       <CarouselContent className="-ml-4">
@@ -117,18 +124,6 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
                 </div>
 
                 <div>
-                    {/* Tags */}
-                    <div className="flex flex-wrap justify-start gap-2 mb-8">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1.5 bg-white text-gray-500 rounded-lg text-xs font-bold shadow-sm border border-transparent"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-start">
                         <a

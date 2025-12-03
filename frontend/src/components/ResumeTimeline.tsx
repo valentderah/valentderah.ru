@@ -30,7 +30,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack Developer",
       period: "February 2023 — Present",
       description:
-        "• Developed and implemented an internal metrics collection system (GTM analog), which accelerated product team decision-making by 30%.\n• Implemented a mechanism for sequential document sending via Celery and Redis with notification distribution.\n• Designed multiple document signing functionality (Avest avcmxwebp), reducing operation time from 3 minutes to 30 seconds.\n• Initiated frontend refactoring: introduced Webpack for build optimization and migrated part of the project to React, increasing client-side performance by 40% and simplifying further development.",
+        "• Developed and implemented an internal metrics collection system (GTM analog), which accelerated product team decision-making by 30%.\n• Implemented a mechanism for sequential document sending via Celery and Redis with notification distribution.\n• Designed multiple document signing functionality, reducing operation time from 3 minutes to 30 seconds.\n• Initiated frontend refactoring: introduced Webpack for build optimization and migrated part of the project to React, increasing client-side performance by 40% and simplifying further development.",
       technologies: ["Python", "JS", "Django", "Docker", "Redis", "Celery", "React", "Webpack", "PostgreSQL", "Nginx"],
       url: "https://podpis.by/",
     },
@@ -82,7 +82,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack-разработчик",
       period: "Февраль 2023 — настоящее время",
       description:
-        "• Разработал и внедрил внутреннюю систему сбора метрик (аналог GTM), что ускорило принятие решений продуктовой командой на 30%.\n• Реализовал механизм последовательной отправки документов через Celery и Redis с рассылкой уведомлений.\n• Спроектировал функционал множественного подписания документов (Avest avcmxwebp), сократив время операции с 3 минут до 30 секунд.\n• Инициировал рефакторинг фронтенда: внедрил Webpack для оптимизации сборки и перевел часть проекта на React, повысив производительность клиентской части на 40% и упростив дальнейшую разработку.",
+        "• Разработал и внедрил внутреннюю систему сбора метрик (аналог GTM), что ускорило принятие решений на 30%.\n• Реализовал механизм последовательной отправки документов через Celery и Redis с рассылкой уведомлений.\n• Спроектировал функционал множественного подписания документов, сократив время операции с 3 минут до 30 секунд.\n• Инициировал рефакторинг фронтенда: внедрил Webpack для оптимизации сборки и перевел часть проекта на React, повысив производительность клиентской части на 40% и упростив дальнейшую разработку.",
       technologies: ["Python", "JS", "Django", "Docker", "Redis", "Celery", "React", "Webpack", "PostgreSQL", "Nginx"],
       url: "https://podpis.by/",
     },
@@ -154,7 +154,7 @@ const ResumeTimeline: React.FC<ResumeTimelineProps> = ({
 
   return (
     <div className="w-full">
-      <div className="bg-[#F3F3F5] rounded-[2rem] p-8">
+      <div className="bg-[#F3F3F5] rounded-[2.5rem] p-8">
         <h2 className="text-4xl font-bold mb-8 text-black text-left">{t.experience}</h2>
 
         <Accordion type="single" collapsible className="w-full space-y-4">

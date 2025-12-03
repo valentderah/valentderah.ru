@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar } from "@/components/ui/avatar";
 import {
@@ -8,7 +7,6 @@ import {
   MessageSquare,
   Youtube,
   ChevronDown,
-  ArrowUpRight,
 } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ProjectGallery from "./ProjectGallery";
@@ -43,8 +41,18 @@ const socialLinks = [
 
 const Home = () => {
   const [language, setLanguage] = useState<Language>("ru");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const t = (key: string) => globalData[key][language];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
@@ -52,15 +60,21 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans text-black">
-      {/* Floating Island Header - Always Visible */}
+      {/* Floating Island Header - Appears on Scroll */}
       <div className="flex justify-center">
-        <header className="fixed top-4 z-50 rounded-xl bg-white/90 backdrop-blur-md shadow-lg px-6 py-3 border border-gray-100 max-w-6xl w-full">
-          <div className="flex items-center justify-between">
+        <header
+          className={`fixed top-4 z-50 transition-all duration-300 ${
+            isScrolled
+              ? "rounded-xl bg-white/90 backdrop-blur-md shadow-lg px-6 py-3 border border-gray-100 max-w-6xl w-full"
+              : "rounded-none bg-transparent backdrop-blur-none shadow-none px-6 py-3 border-none w-full max-w-6xl"
+          }`}
+        >
+          <div className={`flex items-center justify-between ${isScrolled ? "" : "max-w-6xl mx-auto"}`}>
             <div
               className="flex items-center gap-2 cursor-pointer"
               onClick={() => scrollToSection("about")}
             >
-              <h1 className="text-lg font-bold tracking-tight">{t("name")}</h1>
+              <span className="text-lg font-bold tracking-tight">{t("name")}</span>
             </div>
 
             <div className="flex items-center gap-6">
@@ -140,16 +154,6 @@ const Home = () => {
             </div>
 
             {/* Background Decorations */}
-            {/* <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/30 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl pointer-events-none" /> */}
-            {/* <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/30 rounded-full -translate-x-1/3 translate-y-1/3 blur-3xl pointer-events-none" /> */}
-
-            {/* Grid Pattern Overlay */}
-            {/*<div*/}
-            {/*  className="absolute inset-0 opacity-[0.03] pointer-events-none"*/}
-            {/*  style={{*/}
-            {/*    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,*/}
-            {/*  }}*/}
-            {/*/>*/}
           </div>
         </div>
       </section>
@@ -164,11 +168,6 @@ const Home = () => {
       {/* Projects Section (White) */}
       <section id="projects" className="py-20 bg-white w-full overflow-x-clip">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="mb-12 text-left">
-            <h2 className="text-4xl font-bold mb-4 text-black">
-              {t("projects")}
-            </h2>
-          </div>
           <ProjectGallery language={language} />
         </div>
       </section>
@@ -224,8 +223,6 @@ const Home = () => {
             </div>
 
             {/* Decorative blurry blob similar to the purple blob in the image */}
-            {/* <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/20 rounded-full -translate-x-1/3 translate-y-1/3 blur-[100px] pointer-events-none" /> */}
-            {/* <div className="absolute top-0 right-0 w-64 h-64 bg-blue-400/10 rounded-full translate-x-1/3 -translate-y-1/3 blur-[80px] pointer-events-none" /> */}
           </div>
         </div>
       </section>
