@@ -40,10 +40,35 @@ const socialLinks = [
 ];
 
 const Home = () => {
-  const [language, setLanguage] = useState<Language>("ru");
+  const [language, setLanguage] = useState<Language>(() => {
+    // Load language from URL query parameter or localStorage on initial render
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLanguage = urlParams.get("hl") as Language | null;
+      if (urlLanguage === "ru" || urlLanguage === "en") {
+        return urlLanguage;
+      }
+      const savedLanguage = localStorage.getItem("language") as Language | null;
+      if (savedLanguage === "ru" || savedLanguage === "en") {
+        return savedLanguage;
+      }
+    }
+    return "ru";
+  });
   const [isScrolled, setIsScrolled] = useState(false);
 
   const t = (key: string) => globalData[key][language];
+
+  // Save language to localStorage and update URL when it changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("language", language);
+      // Update URL with hl parameter without page reload
+      const url = new URL(window.location.href);
+      url.searchParams.set("hl", language);
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, [language]);
 
   useEffect(() => {
     const handleScroll = () => {
