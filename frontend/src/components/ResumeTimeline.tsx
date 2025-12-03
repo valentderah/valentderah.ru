@@ -30,7 +30,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack Developer",
       period: "February 2023 — Present",
       description:
-        "Developed and implemented an internal metrics collection system (GTM analog), which accelerated product team decision-making by 30%. Implemented a mechanism for sequential document sending via Celery and Redis with notification distribution. Designed multiple document signing functionality (Avest avcmxwebp), reducing operation time from 3 minutes to 30 seconds. Initiated frontend refactoring: introduced Webpack for build optimization and migrated part of the project to React, increasing client-side performance by 40% and simplifying further development.",
+        "• Developed and implemented an internal metrics collection system (GTM analog), which accelerated product team decision-making by 30%.\n• Implemented a mechanism for sequential document sending via Celery and Redis with notification distribution.\n• Designed multiple document signing functionality (Avest avcmxwebp), reducing operation time from 3 minutes to 30 seconds.\n• Initiated frontend refactoring: introduced Webpack for build optimization and migrated part of the project to React, increasing client-side performance by 40% and simplifying further development.",
       technologies: ["Python", "JS", "Django", "Docker", "Redis", "Celery", "React", "Webpack", "PostgreSQL", "Nginx"],
       url: "https://podpis.by/",
     },
@@ -40,7 +40,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack Developer",
       period: "February 2022 — February 2023",
       description:
-        "Configured CI/CD in GitLab with Docker, reducing feature deployment time to production from 2 hours to 1. Increased test coverage from 40% to 70% by writing 80+ unit and endpoint tests (Pytest, Unittest). Developed monetization modules: tariff plans, subscriptions, limits — the foundation for commercial product use. Implemented two-factor authentication (2FA) and role-based access control model to improve security.",
+        "• Configured CI/CD in GitLab with Docker, reducing feature deployment time to production from 2 hours to 1.\n• Increased test coverage from 40% to 70% by writing 80+ unit and endpoint tests (Pytest, Unittest).\n• Developed monetization modules: tariff plans, subscriptions, limits — the foundation for commercial product use.\n• Implemented two-factor authentication (2FA) and role-based access control model to improve security.",
       technologies: [
         "Python",
         "Django",
@@ -61,7 +61,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack Developer",
       period: "January 2021 — February 2022",
       description:
-        "Implemented an open API for integration with external services, attracting 1C clients. Automated report generation in Python, reducing documentation preparation time by 90%. Implemented 'multi-login' function in JavaScript, allowing users to quickly switch between accounts. Conducted a large-scale redesign of the personal cabinet and landing page, improving usability and visual components.",
+        "• Implemented an open API for integration with external services, attracting 1C clients.\n• Automated report generation in Python, reducing documentation preparation time by 90%.\n• Implemented 'multi-login' function in JavaScript, allowing users to quickly switch between accounts.\n• Conducted a large-scale redesign of the personal cabinet and landing page, improving usability and visual components.",
       technologies: ["Python", "REST API", "JavaScript", "Django", "PostgreSQL"],
       url: "https://intechs.by/",
     },
@@ -71,7 +71,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Web Programmer / IT Course Instructor",
       period: "September 2020 — January 2022",
       description:
-        "Implemented and supported commercial projects on PHP and CMS (WordPress, Joomla), solving client tasks for launching and maintaining their web resources. Taught Python and Django, conducting lectures and practical classes. As a mentor, helped students go through the full development cycle: from idea to working prototype.",
+        "• Implemented and supported commercial projects on PHP and CMS (WordPress, Joomla), solving client tasks for launching and maintaining their web resources.\n• Taught Python and Django, conducting lectures and practical classes.\n• As a mentor, helped students go through the full development cycle: from idea to working prototype.",
       technologies: ["PHP", "JavaScript", "Django", "Python"],
     },
   ],
@@ -82,7 +82,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack-разработчик",
       period: "Февраль 2023 — настоящее время",
       description:
-        "Разработал и внедрил внутреннюю систему сбора метрик (аналог GTM), что ускорило принятие решений продуктовой командой на 30%. Реализовал механизм последовательной отправки документов через Celery и Redis с рассылкой уведомлений. Спроектировал функционал множественного подписания документов (Avest avcmxwebp), сократив время операции с 3 минут до 30 секунд. Инициировал рефакторинг фронтенда: внедрил Webpack для оптимизации сборки и перевел часть проекта на React, повысив производительность клиентской части на 40% и упростив дальнейшую разработку.",
+        "• Разработал и внедрил внутреннюю систему сбора метрик (аналог GTM), что ускорило принятие решений продуктовой командой на 30%.\n• Реализовал механизм последовательной отправки документов через Celery и Redis с рассылкой уведомлений.\n• Спроектировал функционал множественного подписания документов (Avest avcmxwebp), сократив время операции с 3 минут до 30 секунд.\n• Инициировал рефакторинг фронтенда: внедрил Webpack для оптимизации сборки и перевел часть проекта на React, повысив производительность клиентской части на 40% и упростив дальнейшую разработку.",
       technologies: ["Python", "JS", "Django", "Docker", "Redis", "Celery", "React", "Webpack", "PostgreSQL", "Nginx"],
       url: "https://podpis.by/",
     },
@@ -92,7 +92,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack-разработчик",
       period: "Февраль 2022 — Февраль 2023",
       description:
-        "Настроил CI/CD в GitLab с Docker, сократив время вывода функционала в прод с 2 часов до 1. Увеличил покрытие тестами с 40% до 70%, написав 80+ unit и endpoint тестов (Pytest, Unittest). Разработал модули монетизации: тарифные планы, подписки, лимиты — основу для коммерческого использования продукта. Внедрил двухфакторную аутентификацию (2FA) и ролевую модель доступа для повышения безопасности.",
+        "• Настроил CI/CD в GitLab с Docker, сократив время вывода функционала в прод с 2 часов до 1.\n• Увеличил покрытие тестами с 40% до 70%, написав 80+ unit и endpoint тестов (Pytest, Unittest).\n• Разработал модули монетизации: тарифные планы, подписки, лимиты — основу для коммерческого использования продукта.\n• Внедрил двухфакторную аутентификацию (2FA) и ролевую модель доступа для повышения безопасности.",
       technologies: [
         "Python",
         "Django",
@@ -113,7 +113,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack-разработчик",
       period: "Январь 2021 — Февраль 2022",
       description:
-        "Реализовал открытый API для интеграции с внешними сервисами, что привлекло 1С-клиентов. Автоматизировал генерацию отчетов на Python, сократив время подготовки документации на 90%. Реализовал на JavaScript функцию «мультивхода», позволив пользователям быстро переключаться между учетными записями. Провел масштабный редизайн личного кабинета и лендинга, улучшив их юзабилити и визуальную составляющую.",
+        "• Реализовал открытый API для интеграции с внешними сервисами, что привлекло 1С-клиентов.\n• Автоматизировал генерацию отчетов на Python, сократив время подготовки документации на 90%.\n• Реализовал на JavaScript функцию «мультивхода», позволив пользователям быстро переключаться между учетными записями.\n• Провел масштабный редизайн личного кабинета и лендинга, улучшив их юзабилити и визуальную составляющую.",
       technologies: ["Python", "REST API", "JavaScript", "Django", "PostgreSQL"],
       url: "https://intechs.by/",
     },
@@ -123,7 +123,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Web-программист / Преподаватель IT-курсов",
       period: "Сентябрь 2020 — Январь 2022",
       description:
-        "Реализовывал и поддерживал коммерческие проекты на PHP и CMS (WordPress, Joomla), решая задачи клиентов по запуску и сопровождению их веб-ресурсов. Преподавал Python и Django, проводя лекции и практические занятия. В роли ментора помогал студентам пройти полный цикл разработки: от идеи до работающего прототипа.",
+        "• Реализовывал и поддерживал коммерческие проекты на PHP и CMS (WordPress, Joomla), решая задачи клиентов по запуску и сопровождению их веб-ресурсов.\n• Преподавал Python и Django, проводя лекции и практические занятия.\n• В роли ментора помогал студентам пройти полный цикл разработки: от идеи до работающего прототипа.",
       technologies: ["PHP", "JavaScript", "Django", "Python"],
     },
   ],
@@ -154,15 +154,15 @@ const ResumeTimeline: React.FC<ResumeTimelineProps> = ({
 
   return (
     <div className="w-full">
-      <h2 className="text-4xl font-bold mb-12 text-black text-left">{t.experience}</h2>
-      
       <div className="bg-[#F3F3F5] rounded-[2rem] p-8">
-        <Accordion type="single" collapsible className="w-full space-y-2">
+        <h2 className="text-4xl font-bold mb-8 text-black text-left">{t.experience}</h2>
+
+        <Accordion type="single" collapsible className="w-full space-y-4">
           {resumeJobs.map((job) => (
             <AccordionItem 
               key={job.id} 
               value={job.id} 
-              className="border-b border-gray-200 last:border-0 px-4"
+              className="bg-white rounded-2xl px-6 border-none"
             >
               <AccordionTrigger className="hover:no-underline py-6">
                 <div className="flex flex-col md:flex-row md:items-center justify-between w-full gap-4 text-left pr-8">
@@ -203,7 +203,7 @@ const ResumeTimeline: React.FC<ResumeTimelineProps> = ({
                     {job.technologies.map((tech) => (
                       <span 
                         key={tech} 
-                        className="px-3 py-1.5 bg-white text-gray-600 rounded-lg text-sm font-medium shadow-sm"
+                        className="px-3 py-1.5 bg-[#F3F3F5] text-gray-600 rounded-lg text-sm font-medium shadow-sm"
                       >
                         {tech}
                       </span>

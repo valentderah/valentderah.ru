@@ -1,17 +1,17 @@
 const globalData = {
     skillsList: [
-        "Python", "PostgreSQL", "Docker", "FastAPI", "SQL", "Git", "Django Framework",
-        "Redis", "Linux", "REST API", "Celery", "Pytest", "JavaScript", "React",
+        "Python", "PostgreSQL", "Docker", "FastAPI", "JavaScript", "React", "Django Framework",
+        "Redis", "Linux", "REST API", "Celery", "Pytest",
         "Webpack", "Gitlab", "Nginx", "Unit Testing", "API", "Bash",
         "Django Rest Framework", "MySQL", "Selenium", "PHP", "pandas", "TypeScript",
         "GitHub", "Clickhouse", "MongoDB", "NoSQL"
     ],
     workExperienceList: [], // Deprecated, moved to ResumeTimeline
-    name: {ru: "Валентин Дерах", en: "Valentin Derakh"},
+    name: {ru: "Валентин Дерах", en: "Valiantsin Dzerakh"},
     title: {ru: "Fullstack-разработчик", en: "Fullstack Developer"},
     about: {ru: "О себе", en: "About me"},
     experience: {ru: "Опыт", en: "Experience"},
-    projects: {ru: "Проекты", en: "Projects"},
+    projects: {ru: "Пет-проекты", en: "Pet Projects"},
     skills: {ru: "Навыки", en: "Skills"},
     contacts: {ru: "Контакты", en: "Contacts"},
     hi: {ru: "Приветствую 👋", en: "Hello 👋"},
@@ -30,7 +30,7 @@ const globalData = {
         ru: "Тут можно почитать мой микроблог или связаться со мной по новым проектам.",
         en: "Here you can read my micro-blog or contact me for new projects."
     },
-    siteWasVibecoded: {ru: "Сайт создан с помощью вайб-кодинга", en: "Site was vibecoded"},
+    siteWasVibecoded: {ru: "Сайт на 99% создан вайб-кодингом", en: "The site is 99% created by vibe coding"},
     education: {ru: "Образование", en: "Education"},
     educationDescription: {
         ru: "Белорусский национальный технический университет, Минск (2022) — Машиностроительный факультет (МСФ), Мехатроника (Неоконченное высшее)",
