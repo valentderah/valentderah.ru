@@ -2,6 +2,8 @@
 
 English | [Русский](README.ru.md)
 
+![Website Preview](public/videos/main-en.gif)
+
 ## Website Sections
 
 *   **About me:** Just a little about myself.
