@@ -13,9 +13,10 @@ interface Project {
   id: string;
   title: string;
   imageUrl: string;
-  chromeStoreUrl: string;
+  chromeStoreUrl?: string;
   githubUrl?: string;
   tags: string[];
+  inDevelopment?: boolean;
 }
 
 interface ProjectGalleryProps {
@@ -42,6 +43,14 @@ const projectsData: Record<string, Project[]> = {
       githubUrl: "https://github.com/valentderah/vk-video-hotkeys",
       tags: ["Chrome Extension", "JavaScript", "Hotkeys"],
     },
+    {
+      id: "3",
+      title: "No Shorts",
+      imageUrl: "/banners/no-shorts.png",
+      githubUrl: "https://github.com/valentderah/no-shorts",
+      tags: ["Chrome Extension", "TypeScript", "Content Blocker"],
+      inDevelopment: true,
+    },
   ],
   ru: [
     {
@@ -62,6 +71,14 @@ const projectsData: Record<string, Project[]> = {
       githubUrl: "https://github.com/valentderah/vk-video-hotkeys",
       tags: ["Chrome Extension", "JavaScript", "Hotkeys"],
     },
+    {
+      id: "3",
+      title: "No Shorts",
+      imageUrl: "/banners/no-shorts.png",
+      githubUrl: "https://github.com/valentderah/no-shorts",
+      tags: ["Chrome Extension", "TypeScript", "Content Blocker"],
+      inDevelopment: true,
+    },
   ],
 };
 
@@ -69,10 +86,12 @@ const projectDescriptions = {
   en: {
     "1": "This extension is designed for users of Yandex servers. It allows you to avoid creating multiple tabs when searching, as well as block ads in Yandex Mail and Yandex Search.",
     "2": "This extension brings back the familiar YouTube keyboard shortcuts. Navigate with ease, toggle subtitles on and off, switch to theater mode, and adjust video playback speed — all using convenient hotkeys.",
+    "3": "This extension blocks all short videos: YouTube Shorts, TikTok, Instagram Reels, VK Clips.",
   },
   ru: {
     "1": "Это расширение создано для пользователей сервисов Яндекса. Оно позволяет избежать открытия множества вкладок при поиске, а также блокирует рекламу в Яндекс Почте и Яндекс Поиске.",
     "2": "Это расширение возвращает знакомые шорткаты YouTube. Удобная навигация, включение/выключение субтитров, режим кинотеатра и регулировка скорости воспроизведения — всё это с помощью удобных горячих клавиш. ",
+    "3": "Это расширение блокирует все короткие ролики: YouTube Shorts, TikTok, Instagram Reels, VK Клипы.",
   },
 };
 
@@ -90,8 +109,16 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
   }, []);
 
   const translations = {
-    en: { viewProject: "View Project", visitGithub: "GitHub" },
-    ru: { viewProject: "Открыть", visitGithub: "GitHub" },
+    en: { 
+      viewProject: "View Project", 
+      visitGithub: "GitHub",
+      inDevelopment: "In development"
+    },
+    ru: { 
+      viewProject: "Открыть", 
+      visitGithub: "GitHub",
+      inDevelopment: "В разработке"
+    },
   };
 
   const t = translations[language] || translations.en;
@@ -101,7 +128,7 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
   return (
     <Carousel
       className="w-full relative"
-      opts={{ align: "start", loop: !isMobile, dragFree: true }}
+      opts={{ align: "start", loop: false, dragFree: true }}
     >
       <div className="flex justify-between items-center mb-12">
         <h2 className="text-4xl font-bold text-black text-left">
@@ -133,9 +160,16 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
               <div className="flex flex-col justify-between py-2 flex-grow">
                 <div className="mb-6">
                   {/* Title First */}
-                  <h3 className="text-2xl font-bold text-black leading-tight mb-4">
+                  <h3 className="text-2xl font-bold text-black leading-tight mb-2">
                     {project.title}
                   </h3>
+                  
+                  {/* In Development Badge */}
+                  {project.inDevelopment && (
+                    <span className="inline-block px-3 py-1 bg-gray-300 text-gray-700 text-sm font-medium rounded-lg mb-4">
+                      {t.inDevelopment}
+                    </span>
+                  )}
 
                   {/* Description Second */}
                   <p className="text-gray-600 text-lg leading-relaxed font-medium">
@@ -146,14 +180,16 @@ const ProjectGallery = ({ language = "en" }: ProjectGalleryProps) => {
                 <div>
                   {/* Buttons */}
                   <div className="flex flex-row gap-4 justify-start">
-                    <a
-                      href={project.chromeStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl shadow-sm text-base transition-colors flex-1 md:flex-none md:w-auto"
-                    >
-                      {t.viewProject}
-                    </a>
+                    {project.chromeStoreUrl && (
+                      <a
+                        href={project.chromeStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl shadow-sm text-base transition-colors flex-1 md:flex-none md:w-auto"
+                      >
+                        {t.viewProject}
+                      </a>
+                    )}
                     {project.githubUrl && (
                       <a
                         href={project.githubUrl}

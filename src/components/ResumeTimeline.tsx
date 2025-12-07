@@ -30,7 +30,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack Developer",
       period: "February 2023 — Present",
       description:
-        "• Developed and implemented an internal metrics collection system (GTM analog), which accelerated product team decision-making by 30%.\n• Implemented a mechanism for sequential document sending via Celery and Redis with notification distribution.\n• Designed multiple document signing functionality, reducing operation time from 3 minutes to 30 seconds.\n• Initiated frontend refactoring: introduced Webpack for build optimization and migrated part of the project to React, increasing client-side performance by 40% and simplifying further development.",
+        "• Developed and implemented an internal metrics collection system (GTM analog), which accelerated product team decision-making by 30%.\n• Implemented asynchronous notification architecture (Celery, Redis), enabling mass distribution of document status notifications.\n• Implemented support for mobile digital signature (MECP) and group signing of incoming documents, reducing document batch processing time from 3 minutes to 30 seconds.\n• Initiated frontend refactoring: introduced Webpack for build optimization and migrated part of the project to React, increasing client-side performance by 40% and simplifying further development.",
       technologies: [
         "Python",
         "JS",
@@ -49,9 +49,9 @@ const defaultJobs: Record<string, Job[]> = {
       id: "2",
       company: "Invento Labs",
       position: "Fullstack Developer",
-      period: "February 2022 — February 2023",
+      period: "January 2021 — February 2023",
       description:
-        "• Configured CI/CD in GitLab with Docker, reducing feature deployment time to production from 2 hours to 1.\n• Increased test coverage from 40% to 70% by writing 80+ unit and endpoint tests (Pytest, Unittest).\n• Developed monetization modules: tariff plans, subscriptions, limits — the foundation for commercial product use.\n• Implemented two-factor authentication (2FA) and role-based access control model to improve security.",
+        "• Configured CI/CD in GitLab with Docker, reducing feature deployment time to production from 2 hours to 1.\n• Increased test coverage from 40% to 70% by writing 80+ unit and endpoint tests (Pytest, Unittest).\n• Designed billing and subscription management architecture (SaaS): tariff plan logic, notification system, 'Certificate Management' section for reconnecting digital signatures.\n• Implemented two-factor authentication (2FA) and role-based access control model to improve security.",
       technologies: [
         "Python",
         "Django",
@@ -99,7 +99,7 @@ const defaultJobs: Record<string, Job[]> = {
       position: "Fullstack-разработчик",
       period: "Февраль 2023 — Настоящее время",
       description:
-        "• Разработал и внедрил внутреннюю систему сбора метрик (аналог GTM), что ускорило принятие решений на 30%.\n• Реализовал механизм последовательной отправки документов через Celery и Redis с рассылкой уведомлений.\n• Спроектировал функционал множественного подписания документов, сократив время операции с 3 минут до 30 секунд.\n• Инициировал рефакторинг фронтенда: внедрил Webpack для оптимизации сборки и перевел часть проекта на React, повысив производительность клиентской части на 40% и упростив дальнейшую разработку.",
+        "• Разработал внутреннюю систему сбора метрик (аналог GTM), что ускорило принятие решений продуктовой командой на 30%.\n• Внедрил асинхронную архитектуру отправки уведомлений (Celery, Redis), что позволило делать массовые рассылки о статусах документов.\n• Внедрил поддержку мобильной ЭЦП (МЭЦП) и группового подписания входящих документов, сократив время обработки пакета документов с 3 минут до 30 секунд.\n• Инициировал рефакторинг фронтенда: внедрил Webpack для оптимизации сборки и перевел часть проекта на React, повысив производительность клиентской части на 40% и упростив дальнейшую разработку.",
       technologies: [
         "Python",
         "JS",
@@ -118,9 +118,9 @@ const defaultJobs: Record<string, Job[]> = {
       id: "2",
       company: "Invento Labs",
       position: "Fullstack-разработчик",
-      period: "Февраль 2022 — Февраль 2023",
+      period: "Январь 2021 — Февраль 2023",
       description:
-        "• Настроил CI/CD в GitLab с Docker, сократив время вывода функционала в прод с 2 часов до 1.\n• Увеличил покрытие тестами с 40% до 70%, написав 80+ unit и endpoint тестов (Pytest, Unittest).\n• Разработал модули монетизации: тарифные планы, подписки, лимиты — основу для коммерческого использования продукта.\n• Внедрил двухфакторную аутентификацию (2FA) и ролевую модель доступа для повышения безопасности.",
+        "• Настроил CI/CD в GitLab c Docker, сократив время вывода функционала в прод с 2 часов до 1.\n• Увеличил покрытие тестами с 40% до 70%, написав 80+ unit и endpoint тестов (Pytest, Unittest).\n• Спроектировал архитектуру биллинга и управления подписками (SaaS): логику тарифных планов, систему уведомлений, раздел «Управление сертификатами» для переподключения ЭЦП.\n• Внедрил двухфакторную аутентификацию (2FA) и ролевую модель доступа для повышения безопасности.",
       technologies: [
         "Python",
         "Django",
