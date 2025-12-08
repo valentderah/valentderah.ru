@@ -49,12 +49,12 @@ const defaultJobs: Record<string, Job[]> = {
       id: "2",
       company: "Invento Labs",
       position: "Fullstack Developer",
-      period: "January 2021 — February 2023",
+      period: "February 2022 — February 2023",
       description:
         "• Configured CI/CD in GitLab with Docker, reducing feature deployment time to production from 2 hours to 1.\n• Increased test coverage from 40% to 70% by writing 80+ unit and endpoint tests (Pytest, Unittest).\n• Designed billing and subscription management architecture (SaaS): tariff plan logic, notification system, 'Certificate Management' section for reconnecting digital signatures.\n• Implemented two-factor authentication (2FA) and role-based access control model to improve security.",
       technologies: [
         "Python",
-        "Django",
+        "Django", 
         "Docker",
         "Celery",
         "Redis",
@@ -118,7 +118,7 @@ const defaultJobs: Record<string, Job[]> = {
       id: "2",
       company: "Invento Labs",
       position: "Fullstack-разработчик",
-      period: "Январь 2021 — Февраль 2023",
+      period: "Февраль 2022 — Февраль 2023",
       description:
         "• Настроил CI/CD в GitLab c Docker, сократив время вывода функционала в прод с 2 часов до 1.\n• Увеличил покрытие тестами с 40% до 70%, написав 80+ unit и endpoint тестов (Pytest, Unittest).\n• Спроектировал архитектуру биллинга и управления подписками (SaaS): логику тарифных планов, систему уведомлений, раздел «Управление сертификатами» для переподключения ЭЦП.\n• Внедрил двухфакторную аутентификацию (2FA) и ролевую модель доступа для повышения безопасности.",
       technologies: [
